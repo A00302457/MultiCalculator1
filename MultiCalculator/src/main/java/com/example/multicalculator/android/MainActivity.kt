@@ -44,7 +44,9 @@ class MainActivity : ComponentActivity() {
 fun CalcView(){
    val displayText = remember { mutableStateOf("0")}
     Column(modifier = Modifier.background(Color.LightGray)){
-
+        Row {
+            CalcDisplay(display = )
+        }
     }
 
 }
