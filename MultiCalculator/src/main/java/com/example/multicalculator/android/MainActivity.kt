@@ -12,7 +12,9 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -38,7 +40,7 @@ class MainActivity : ComponentActivity() {
 }
 @Composable
 fun CalcView(){
-   val displayText = mutableStateOf("0")
+   val displayText by remember { mutableStateOf("0")
 
 
 }
@@ -54,6 +56,13 @@ fun CalcRow(display: MutableState<String>, startNum : Int, numButtons : Int){
 
 @Composable
 fun CalcDisplay(display: MutableState<String>){
+    Text(
+        text = display.value,
+        modifier = Modifier
+            .height(50.dp)
+            .padding(5.dp)
+            .fillMaxWidth(1f)
+    )
 
 }
 @Composable
