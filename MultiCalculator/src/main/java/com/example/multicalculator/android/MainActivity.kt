@@ -43,15 +43,6 @@ fun CalcView(){
 
 }
 @Composable
-fun CalcRow(display: MutableState<String>, startNum : Int, numButtons : Int){
-    val endNum = startNum + numButtons
-    Row(modifier = Modifier.padding(0.dp)) {
-        for (num in startNum until numButtons)
-        CalcNumericButton(number = num, display = display )
-
-    }
-}
-@Composable
 fun CalcDisplay(display: MutableState<String>){
     Text(
         text = display.value,
