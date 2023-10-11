@@ -47,6 +47,14 @@ fun CalcView(){
         Row {
             CalcDisplay(display = )
         }
+        Row {
+            Column {
+
+            }
+            Column {
+
+            }
+        }
     }
 
 }
