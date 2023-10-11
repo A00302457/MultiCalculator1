@@ -10,7 +10,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
@@ -45,17 +44,21 @@ fun CalcView() {
     val displayText = remember { mutableStateOf("0") }
     Column(modifier = Modifier.background(Color.LightGray)) {
         Row {
-            CalcDisplay(display =)
+            CalcDisplay(display =displayText)
         }
         Row {
             Column {
                 for (i in 7 downTo 1)
                     CalcRow(displayText, i, 3)
-
+                 }
                 Column {
-                    CalcOperationButton(operation =, display =)
+                    CalcOperationButton(operation = "+", display = displayText)
+                    CalcOperationButton(operation = "-", display = displayText)
+                    CalcOperationButton(operation = "*", display = displayText)
+                    CalcOperationButton(operation = "/", display = displayText)
+
                 }
-            }
+
         }
     }
 }
