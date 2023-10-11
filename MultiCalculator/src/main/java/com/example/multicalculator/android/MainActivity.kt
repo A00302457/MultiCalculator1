@@ -34,6 +34,7 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colors.background
                 ) {
                     GreetingView(Greeting().greet())
+                    CalcView()
                 }
             }
         }
@@ -42,15 +43,17 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun CalcView() {
     val displayText = remember { mutableStateOf("0") }
+
     Column(modifier = Modifier.background(Color.LightGray)) {
         Row {
             CalcDisplay(display =displayText)
         }
         Row {
             Column {
-                for (i in 7 downTo 1)
+                for (i in 7 downTo 1 step 3)
                     CalcRow(displayText, i, 3)
-                 }
+
+            }
                 Row {
                     CalcNumericButton(number = 0, display=displayText)
                     CalcEqualsButton(display = displayText)
