@@ -38,7 +38,7 @@ class MainActivity : ComponentActivity() {
 }
 @Composable
 fun CalcView(){
-   // val displayText = mutableStateOf("0")
+   val displayText = mutableStateOf("0")
 
 
 }
@@ -77,14 +77,6 @@ fun CalcOperationButton(operation : String, display : MutableState<String>){
         modifier = Modifier.padding(4.dp)
     ) {
         Text(text = operation )
-    }
-}
-@Composable
-fun CalcEqualsButton(display: MutableState<String>){
-    //Add padding 4 DP
-    Button(onClick = {display.value = "0"}, modifier=Modifier.padding(4.dp))  {
-        Text(text = "=" )
-        
     }
 }
 
