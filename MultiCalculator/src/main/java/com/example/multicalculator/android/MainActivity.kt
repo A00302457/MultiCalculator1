@@ -50,8 +50,8 @@ fun CalcView() {
         }
         Row {
             Column {
-                for (i in 7 downTo 1 step 3)
-                    CalcRow(displayText, i, 3)
+                for (i in 7 downTo 1 step 3){
+                    CalcRow(displayText, i, 3)}
 
             }
                 Row {
@@ -74,7 +74,7 @@ fun CalcView() {
 fun CalcRow(display: MutableState<String>, startNum: Int, numButtons: Int) {
     val endNum = startNum + numButtons
     Row(modifier = Modifier.padding(0.dp)) {
-        for (num in startNum until numButtons)
+        for (num in startNum until endNum)
             CalcNumericButton(number = num, display = display)
     }
 }
