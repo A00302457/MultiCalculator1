@@ -62,72 +62,71 @@ fun CalcView() {
 
                 }
 
-        }
+             }
+         }
+    }
+
+@Composable
+fun CalcRow(display: MutableState<String>, startNum: Int, numButtons: Int) {
+    val endNum = startNum + numButtons
+    Row(modifier = Modifier.padding(0.dp)) {
+        for (num in startNum until numButtons)
+            CalcNumericButton(number = num, display = display)
     }
 }
 
-        @Composable
-        fun CalcRow(display: MutableState<String>, startNum: Int, numButtons: Int) {
-            val endNum = startNum + numButtons
-            Row(modifier = Modifier.padding(0.dp)) {
-                for (num in startNum until numButtons)
-                    CalcNumericButton(number = num, display = display)
-            }
-        }
+@Composable
+fun CalcDisplay(display: MutableState<String>) {
+    Text(
+        text = display.value,
+        modifier = Modifier
+            .height(50.dp)
+            .padding(5.dp)
+            .fillMaxWidth(1f)
+    )
 
-            @Composable
-            fun CalcDisplay(display: MutableState<String>) {
-                Text(
-                    text = display.value,
-                    modifier = Modifier
-                        .height(50.dp)
-                        .padding(5.dp)
-                        .fillMaxWidth(1f)
-                )
+}
 
-            }
+@Composable
+fun CalcNumericButton(number: Int, display: MutableState<String>) {
+    Button(
+        onClick = {}, modifier = Modifier.padding(4.dp)
+    ) {
+        Text(text = number.toString())
+    }
 
-            @Composable
-            fun CalcNumericButton(number: Int, display: MutableState<String>) {
-                Button(
-                    onClick = {}, modifier = Modifier.padding(4.dp)
-                ) {
-                    Text(text = number.toString())
-                }
+}
 
-            }
+@Composable
+fun CalcEqualsButton(display: MutableState<String>) {
+    //Add padding 4 DP
+        Button(onClick = { display.value = "0" }, modifier = Modifier.padding(4.dp)) {
+        Text(text = "=")
+    }
+}
 
-            @Composable
-            fun CalcEqualsButton(display: MutableState<String>) {
-                //Add padding 4 DP
-                Button(onClick = { display.value = "0" }, modifier = Modifier.padding(4.dp)) {
-                    Text(text = "=")
-
-                }
-            }
-
-            @Composable
-            fun CalcOperationButton(operation: String, display: MutableState<String>) {
-                Button(
-                    onClick = { /*TODO*/ },
-                    modifier = Modifier.padding(4.dp)
-                ) {
-                    Text(text = operation)
-                }
-            }
+@Composable
+fun CalcOperationButton(operation: String, display: MutableState<String>) {
+    Button(
+        onClick = { /*TODO*/ },
+                   modifier = Modifier.padding(4.dp)
+    ) {
+        Text(text = operation)
+    }
+}
 
 
-            @Composable
-            fun GreetingView(text: String) {
-                Text(text = text)
-            }
+@Composable
+fun GreetingView(text: String) {
+    Text(text = text)
+}
 
-            @Preview
-            @Composable
-            fun DefaultPreview() {
-                MyApplicationTheme {
-                    GreetingView("Hello, Android!")
-                }
-            }
+@Preview
+@Composable
+fun DefaultPreview() {
+    MyApplicationTheme {
+        GreetingView("Hello, Android!")
+    }
+}
 
 
