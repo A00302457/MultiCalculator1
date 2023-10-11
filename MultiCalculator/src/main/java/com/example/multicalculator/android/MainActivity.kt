@@ -38,7 +38,7 @@ class MainActivity : ComponentActivity() {
 }
 @Composable
 fun CalcView(){
-    val displayText = mutableStateOf("0")
+   // val displayText = mutableStateOf("0")
 
 
 }
