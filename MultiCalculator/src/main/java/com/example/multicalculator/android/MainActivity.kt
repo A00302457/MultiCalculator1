@@ -49,7 +49,7 @@ fun CalcView(){
         }
         Row {
             Column {
-
+                CalcOperationButton(operation = , display = )
             }
             Column {
 
