@@ -52,6 +52,14 @@ fun CalcView() {
 fun CalcRow() {
 
 }
+@Composable
+fun CalcDisplay() {
+
+}
+@Composable
+fun CalcNumericButton() {
+
+}
 
 @Composable
 fun GreetingView(text: String) {
