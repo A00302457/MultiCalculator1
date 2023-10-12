@@ -1,9 +1,11 @@
 package com.example.multicalculator.android
 
 import android.os.Bundle
+import android.widget.Button
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -17,6 +19,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.textInputServiceFactory
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.max
@@ -44,7 +47,9 @@ class MainActivity : ComponentActivity() {
 fun CalcView() {
     val displayText = remember { mutableStateOf("0") }
 
-    Column(modifier = Modifier.background(Color.LightGray)) {
+    Column(modifier = Modifier
+        .background(Color.LightGray)
+        .padding(50.dp)) {
         Row {
             CalcDisplay(display =displayText)
         }
@@ -88,23 +93,31 @@ fun CalcDisplay(display: MutableState<String>) {
             .height(50.dp)
             .padding(5.dp)
             .fillMaxWidth(1f)
-    )
+            .border(4.dp, Color.Black)
+            )
+
 
 }
 
 @Composable
 fun CalcNumericButton(number: Int, display: MutableState<String>) {
     Button(
-        onClick = {}, modifier = Modifier.padding(4.dp)
+        onClick = { display.value+=number.toString()}, modifier = Modifier.padding(4.dp)
     ) {
+            //CalcDisplay()
+
         Text(text = number.toString())
+        }
+        //CalcDisplay(display = display.value)
+       // Text(text=display.value+number.toString())
+
     }
 
-}
+
 
 @Composable
 fun CalcEqualsButton(display: MutableState<String>) {
-    //Add padding 4 DP
+
         Button(onClick = { display.value = "0" }, modifier = Modifier.padding(4.dp)) {
         Text(text = "=")
     }
